@@ -1,0 +1,153 @@
+#!/bin/bash
+
+# Ruta al audio de GLaDOS
+audio_path="$GLADOS_AUDIO_PATH"
+
+glados_show_image() {
+  local image_url="https://i1.theportalwiki.net/img/7/79/GLaDOS_P2.png"
+  local controller_path="/home/lau/.config/GitKraken/scripts/glados/controllers/glados.sh"
+
+  # 🧪 Verificar si estamos en Kitty
+  if [ "$TERM" != "xterm-kitty" ]; then
+    echo -e "\e[33m⚠️ No estás en Kitty. Intentando iniciar Kitty para mostrar la imagen...\e[0m"
+
+    if command -v kitty &> /dev/null; then
+      kitty --detach bash "$controller_path" || {
+        echo -e "\e[38;2;255;102;102m[ ERROR ] No se pudo iniciar Kitty. Imagen no mostrada ❌\e[0m"
+        return 1
+      }
+      exit 0
+    else
+      echo -e "\e[38;2;255;102;102m[ ERROR ] Kitty no está instalado. No se puede mostrar la imagen ❌\e[0m"
+      return 1
+    fi
+  fi
+
+  # 🖼️ Mostrar imagen si estamos en Kitty
+  if ! kitty +kitten icat --clear --align left --scale-up "$image_url"; then
+    echo -e "\e[38;2;255;102;102m[ ERROR ] Falló la visualización de la imagen con icat ❌\e[0m"
+    return 1
+  fi
+
+  sleep 0.5
+}
+
+glados_show_image() {
+  # Verificar si estamos en Kitty
+  if [ "$TERM" != "xterm-kitty" ]; then
+    echo -e "\e[33m⚠️ No estás en Kitty. Iniciando Kitty para mostrar la imagen...\e[0m"
+    
+    # Ruta al controlador que debe ejecutarse dentro de Kitty
+    controller_path="/home/lau/.config/GitKraken/scripts/glados/controllers/glados.sh"
+
+    # Ejecutar Kitty y relanzar el script
+    kitty --detach bash "$controller_path" &
+    exit 0
+  fi
+
+  # Mostrar imagen si estamos en Kitty
+  kitty +kitten icat --clear --align left --scale-up \
+    "https://i1.theportalwiki.net/img/7/79/GLaDOS_P2.png" &
+  sleep 0.5
+}
+glados_show_image() {
+  # Verificar si estamos en Kitty
+  if [ "$TERM" != "xterm-kitty" ]; then
+    echo -e "\e[33m⚠️ No estás en Kitty. Iniciando Kitty para mostrar la imagen...\e[0m"
+    
+    # Ruta al controlador que debe ejecutarse dentro de Kitty
+    controller_path="/home/lau/.config/GitKraken/scripts/glados/controllers/glados.sh"
+
+    # Ejecutar Kitty y relanzar el script
+    kitty --detach bash "$controller_path" &
+    exit 0
+  fi
+
+  # Mostrar imagen si estamos en Kitty
+  kitty +kitten icat --clear --align left --scale-up \
+    "https://i1.theportalwiki.net/img/7/79/GLaDOS_P2.png" &
+  sleep 0.5
+}
+glados_show_image() {
+  # Verificar si estamos en Kitty
+  if [ "$TERM" != "xterm-kitty" ]; then
+    echo -e "\e[33m⚠️ No estás en Kitty. Iniciando Kitty para mostrar la imagen...\e[0m"
+    
+    # Ruta al controlador que debe ejecutarse dentro de Kitty
+    controller_path="/home/lau/.config/GitKraken/scripts/glados/controllers/glados.sh"
+
+    # Ejecutar Kitty y relanzar el script
+    kitty --detach bash "$controller_path" &
+    exit 0
+  fi
+
+  # Mostrar imagen si estamos en Kitty
+  kitty +kitten icat --clear --align left --scale-up \
+    "https://i1.theportalwiki.net/img/7/79/GLaDOS_P2.png" &
+  sleep 0.5
+}
+glados_show_image() {
+  # Verificar si estamos en Kitty
+  if [ "$TERM" != "xterm-kitty" ]; then
+    echo -e "\e[33m⚠️ No estás en Kitty. Iniciando Kitty para mostrar la imagen...\e[0m"
+    
+    # Ruta al controlador que debe ejecutarse dentro de Kitty
+    controller_path="/home/lau/.config/GitKraken/scripts/glados/controllers/glados.sh"
+
+    # Ejecutar Kitty y relanzar el script
+    kitty --detach bash "$controller_path" &
+    exit 0
+  fi
+
+  # Mostrar imagen si estamos en Kitty
+  kitty +kitten icat --clear --align left --scale-up \
+    "https://i1.theportalwiki.net/img/7/79/GLaDOS_P2.png" &
+  sleep 0.5
+}
+glados_show_image() {
+  # Verificar si estamos en Kitty
+  if [ "$TERM" != "xterm-kitty" ]; then
+    echo -e "\e[33m⚠️ No estás en Kitty. Iniciando Kitty para mostrar la imagen...\e[0m"
+    
+    # Ruta al controlador que debe ejecutarse dentro de Kitty
+    controller_path="/home/lau/.config/GitKraken/scripts/glados/controllers/glados.sh"
+
+    # Ejecutar Kitty y relanzar el script
+    kitty --detach bash "$controller_path" &
+    exit 0
+  fi
+
+  # Mostrar imagen si estamos en Kitty
+  kitty +kitten icat --clear --align left --scale-up \
+    "https://i1.theportalwiki.net/img/7/79/GLaDOS_P2.png" &
+  sleep 0.5
+}
+
+# 💬 Mostrar texto alineado a la derecha del terminal
+glados_show_text() {
+  local mensaje="$1"
+  IFS=$'\n' read -rd '' -a lines <<< "$(echo "$mensaje" | fold -s -w 50)"
+  for linea in "${lines[@]}"; do
+    printf "\e[s\e[100G%s\e[u\n" "$linea"
+  done
+}
+
+# ❌ Mostrar error con estilo GLaDOS
+glados_show_error() {
+  local mensaje="$1"
+  echo -e "\n                                                                                          \e[38;2;255;102;102m[ ERROR ] $mensaje ❌\e[0m"
+}
+
+# ✅ Mostrar estado final
+glados_show_status() {
+  echo -e "\n                                                                                          \e[32m✅ Éxito\e[0m"
+}
+
+# 🔊 Reproducir audio si existe
+glados_play_audio() {
+  if [ -f "$audio_path" ]; then
+    ffplay -nodisp -autoexit "$audio_path" > /dev/null 2>&1
+  else
+    echo -e "\e[33m⚠️ No se encontró el archivo de audio: $audio_path\e[0m"
+  fi
+}
