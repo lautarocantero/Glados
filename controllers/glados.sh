@@ -1,11 +1,16 @@
 #!/bin/bash
 
-# Archivos
-json_path="/home/lau/.config/GitKraken/scripts/glados/dialogs.json"
+
+# Cargar variables desde .env
+source /ruta/a/.env
+
+# Usar las variables
+json_path="$GLADOS_DIALOGS_PATH"
+audio_path="$GLADOS_AUDIO_PATH"
 
 # Verificar existencia de archivo JSON
 if [ ! -f "$json_path" ]; then
-  echo -e "\e[31mError:\e[0m No se encontró dialogs.json ❌"
+  echo -e "\e[38;2;255;187;102m[ ERROR ] Algo salió mal...\e[0m"
   exit 1
 fi
 
@@ -13,7 +18,7 @@ fi
 mapfile -t glados_dialogs < <(jq -r '.[]' "$json_path")
 
 if [ ${#glados_dialogs[@]} -eq 0 ]; then
-  echo -e "\e[31mError:\e[0m dialogs.json está vacío o malformado ❌"
+  echo -e "\e[38;2;255;187;102m[ ERROR ] dialogs.json está vacío o malformado ❌\e[0m"
   exit 1
 fi
 
@@ -38,3 +43,10 @@ done
 
 # Emoji de estado final
 echo -e "\n                                                                                          \e[32m✅ Éxito\e[0m"
+
+# Reproducir audio si existe
+if [ -f "$audio_path" ]; then
+  ffplay -nodisp -autoexit "$audio_path" > /dev/null 2>&1
+else
+  echo -e "\e[33m⚠️ No se encontró el archivo de audio: $audio_path\e[0m"
+fi
