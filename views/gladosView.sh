@@ -32,105 +32,27 @@ glados_show_image() {
   sleep 0.5
 }
 
-glados_show_image() {
-  # Verificar si estamos en Kitty
-  if [ "$TERM" != "xterm-kitty" ]; then
-    echo -e "\e[33m⚠️ No estás en Kitty. Iniciando Kitty para mostrar la imagen...\e[0m"
-    
-    # Ruta al controlador que debe ejecutarse dentro de Kitty
-    controller_path="/home/lau/.config/GitKraken/scripts/glados/controllers/glados.sh"
-
-    # Ejecutar Kitty y relanzar el script
-    kitty --detach bash "$controller_path" &
-    exit 0
-  fi
-
-  # Mostrar imagen si estamos en Kitty
-  kitty +kitten icat --clear --align left --scale-up \
-    "https://i1.theportalwiki.net/img/7/79/GLaDOS_P2.png" &
-  sleep 0.5
-}
-glados_show_image() {
-  # Verificar si estamos en Kitty
-  if [ "$TERM" != "xterm-kitty" ]; then
-    echo -e "\e[33m⚠️ No estás en Kitty. Iniciando Kitty para mostrar la imagen...\e[0m"
-    
-    # Ruta al controlador que debe ejecutarse dentro de Kitty
-    controller_path="/home/lau/.config/GitKraken/scripts/glados/controllers/glados.sh"
-
-    # Ejecutar Kitty y relanzar el script
-    kitty --detach bash "$controller_path" &
-    exit 0
-  fi
-
-  # Mostrar imagen si estamos en Kitty
-  kitty +kitten icat --clear --align left --scale-up \
-    "https://i1.theportalwiki.net/img/7/79/GLaDOS_P2.png" &
-  sleep 0.5
-}
-glados_show_image() {
-  # Verificar si estamos en Kitty
-  if [ "$TERM" != "xterm-kitty" ]; then
-    echo -e "\e[33m⚠️ No estás en Kitty. Iniciando Kitty para mostrar la imagen...\e[0m"
-    
-    # Ruta al controlador que debe ejecutarse dentro de Kitty
-    controller_path="/home/lau/.config/GitKraken/scripts/glados/controllers/glados.sh"
-
-    # Ejecutar Kitty y relanzar el script
-    kitty --detach bash "$controller_path" &
-    exit 0
-  fi
-
-  # Mostrar imagen si estamos en Kitty
-  kitty +kitten icat --clear --align left --scale-up \
-    "https://i1.theportalwiki.net/img/7/79/GLaDOS_P2.png" &
-  sleep 0.5
-}
-glados_show_image() {
-  # Verificar si estamos en Kitty
-  if [ "$TERM" != "xterm-kitty" ]; then
-    echo -e "\e[33m⚠️ No estás en Kitty. Iniciando Kitty para mostrar la imagen...\e[0m"
-    
-    # Ruta al controlador que debe ejecutarse dentro de Kitty
-    controller_path="/home/lau/.config/GitKraken/scripts/glados/controllers/glados.sh"
-
-    # Ejecutar Kitty y relanzar el script
-    kitty --detach bash "$controller_path" &
-    exit 0
-  fi
-
-  # Mostrar imagen si estamos en Kitty
-  kitty +kitten icat --clear --align left --scale-up \
-    "https://i1.theportalwiki.net/img/7/79/GLaDOS_P2.png" &
-  sleep 0.5
-}
-glados_show_image() {
-  # Verificar si estamos en Kitty
-  if [ "$TERM" != "xterm-kitty" ]; then
-    echo -e "\e[33m⚠️ No estás en Kitty. Iniciando Kitty para mostrar la imagen...\e[0m"
-    
-    # Ruta al controlador que debe ejecutarse dentro de Kitty
-    controller_path="/home/lau/.config/GitKraken/scripts/glados/controllers/glados.sh"
-
-    # Ejecutar Kitty y relanzar el script
-    kitty --detach bash "$controller_path" &
-    exit 0
-  fi
-
-  # Mostrar imagen si estamos en Kitty
-  kitty +kitten icat --clear --align left --scale-up \
-    "https://i1.theportalwiki.net/img/7/79/GLaDOS_P2.png" &
-  sleep 0.5
-}
-
 # 💬 Mostrar texto alineado a la derecha del terminal
+
 glados_show_text() {
   local mensaje="$1"
-  IFS=$'\n' read -rd '' -a lines <<< "$(echo "$mensaje" | fold -s -w 50)"
-  for linea in "${lines[@]}"; do
-    printf "\e[s\e[100G%s\e[u\n" "$linea"
+  local delay=0.015
+  local color="\e[38;2;255;154;0m"
+
+  echo -ne "$color"
+  local count=0
+  for ((i=0; i<${#mensaje}; i++)); do
+    printf "%s" "${mensaje:$i:1}"
+    sleep "$delay"
+    ((count++))
+    if (( count % 50 == 0 )); then
+      echo
+    fi
   done
+  echo -e "\e[0m"
 }
+
+
 
 # ❌ Mostrar error con estilo GLaDOS
 glados_show_error() {
