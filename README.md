@@ -68,7 +68,9 @@ Haz un fork, adivina la intención original, y buena suerte.
 Probablemente haya una. O no.  
 Haz lo que quieras. Yo ya me rendí.
 
----
+--- Imagenes
+
+![GLaDOS](/resources/glados_peak.jpg)
 
 **Nota:** Este README fue generado automáticamente porque el autor olvidó escribir uno.  
 O tal vez fue un acto de rebeldía. Nunca lo sabremos.
