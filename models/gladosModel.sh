@@ -5,7 +5,7 @@ env_path="/home/lau/.config/GitKraken/scripts/glados/.env"
 if [ -f "$env_path" ]; then
   source "$env_path"
 else
-  echo -e "\e[38;2;255;187;102m[ ERROR ] No se encontró el archivo  .env en $env_path ❌\e[0m"
+  echo -e "\e[38;2;255;187;102m[ ERROR ] No se encontró el archivo .env en $env_path ❌\e[0m"
   exit 1
 fi
 
