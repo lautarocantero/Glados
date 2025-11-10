@@ -67,7 +67,7 @@ while true; do
       break
       ;;
     "estado")
-      echo -e "\e[38;2;102;255;178m✅ Estado del sistema: funcional, a pesar de vos.\e[0m"
+      echo -e "\e[38;2;102;255;178m✅  Estado del sistema: funcional, a pesar de vos.\e[0m"
       ;;
     "ayuda")
       glados_open /home/lau/.config/GitKraken/scripts/glados
