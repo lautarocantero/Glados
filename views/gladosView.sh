@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Ruta al audio de GLaDOS
-audio_path="$GLADOS_AUDIO_PATH"
 
 glados_show_image() {
   local image_url="https://i1.theportalwiki.net/img/7/79/GLaDOS_P2.png"
@@ -52,10 +51,64 @@ glados_show_text() {
   echo -e "\e[0m"
 }
 
+glados_show_text_async() {
+  local mensaje="$1"
+  local delay=0.03
+  local color="\e[38;2;255;154;0m"
+
+  (
+    tput civis  # Ocultar cursor temporalmente
+    echo -ne "$color"
+    local cols=$(tput cols)
+    local row=2
+
+    for ((i=0; i<${#mensaje}; i++)); do
+      tput cup "$row" "$((cols - 50))"
+      printf "%s" "${mensaje:$i:1}"
+      sleep "$delay"
+      ((row++))
+      if (( row > $(tput lines) - 2 )); then
+        row=2
+      fi
+    done
+    echo -e "\e[0m"
+    tput cnorm  # Restaurar cursor
+  ) &
+}
+
+glados_show_text_right_of_image() {
+  local mensaje="$1"
+  local delay=0.03
+  local color="\e[38;2;255;154;0m"
+
+  (
+    tput civis  # Ocultar cursor
+    echo -ne "$color"
+
+    local cols=$(tput cols)
+    local lines=$(tput lines)
+    local start_col=$((cols / 2 + 10))  # Ajustá según el ancho de la imagen
+    local row=2
+
+    for ((i=0; i<${#mensaje}; i++)); do
+      tput cup "$row" "$start_col"
+      printf "%s" "${mensaje:$i:1}"
+      sleep "$delay"
+      ((row++))
+      if (( row > lines - 2 )); then
+        row=2
+      fi
+    done
+
+    echo -e "\e[0m"
+    tput cnorm  # Restaurar cursor
+  ) &
+}
 
 
 # ❌ Mostrar error con estilo GLaDOS
 glados_show_error() {
+  echo 'hubo un error'
   local mensaje="$1"
   echo -e "\n                                                                                          \e[38;2;255;102;102m[ ERROR ] $mensaje ❌\e[0m"
 }
@@ -67,9 +120,20 @@ glados_show_status() {
 
 # 🔊 Reproducir audio si existe
 glados_play_audio() {
+  audio_path="$1"
   if [ -f "$audio_path" ]; then
     ffplay -nodisp -autoexit "$audio_path" > /dev/null 2>&1
   else
-    echo -e "\e[33m⚠️ No se encontró el archivo de audio: $audio_path\e[0m"
+    echo -e "\e[33m⚠️ No se encontró el archivo de audio: $audio_path, lamentablemente, era la solucion a tu problema \e[0m"
+  fi
+}
+
+glados_audio_state() {
+  local audio="$1"
+  if [ -f "$audio" ]; then
+    ffplay -nodisp -autoexit "$audio" > /dev/null 2>&1
+    return 0  # Éxito
+  else
+    return 1  # Fallo
   fi
 }
