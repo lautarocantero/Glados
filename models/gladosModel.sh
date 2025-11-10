@@ -57,9 +57,15 @@ glados_session() {
     export GLADOS_SESSION_STARTED=1
     glados_play_audio >/dev/null 2>&1 &
   fi
-  # textos 
-  echo -e "\e[38;2;102;255;178m✅ Componentes de GLaDOS importados con éxito. Qué milagro.\e[0m"
-  echo -ne "\e[38;2;255;204;0m🧠 ?: \e[0m"
+
+
+  # OUTPUT TERMINAL, ACA ES DONDE SE PONE EL PUNTERO
+  current_path=$(pwd)
+
+  # Mostrar estado sin salto de línea
+  echo -ne "\e[38;2;255;204;0m📍 $current_path/$mood → $note \e[0m"
+
+  # Leer input en la misma línea
   read -r input
 
   export PS1="$original_ps1"
@@ -117,6 +123,24 @@ inicializar_importes_glados() {
 
 }
 
-
-
+function glados_prompt() {
+    while true; do
+        echo -ne "\e[38;2;255;204;0m🧠 GLaDOS is listening... What now? \e[0m"
+        read -r input
+        case "$input" in
+            "launch server")
+                echo -e "\e[38;2;178;102;255m🎬 Launching server. Try not to explode.\e[0m"
+                node server.js
+                echo -e "\e[38;2;255;204;0m🧠 Server exited. GLaDOS is back.\e[0m"
+                ;;
+            "exit")
+                echo -e "\e[38;2;255;102;102m💀 GLaDOS shutting down. You were... adequate.\e[0m"
+                break
+                ;;
+            *)
+                echo -e "\e[38;2;255;204;0m🤖 Unknown command. Try harder.\e[0m"
+                ;;
+        esac
+    done
+}
 
