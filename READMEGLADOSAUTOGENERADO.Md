@@ -36,86 +36,41 @@
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡽⠁⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢟⡞⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⢿⣿⣿⣿⣿⣻⠟⢉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+# Proyecto Misterioso™
 
+Bienvenido al repositorio. ¿De qué trata? Excelente pregunta. Yo también me lo pregunto.
 
-# GLaDOS 🧠💾  
-_Asistente virtual y manejadora de archivos, con sarcasmo incorporado._
+## 🤖 ¿Qué hace este proyecto?
 
-## 🚀 ¿Qué es esto?
+Algo. Probablemente.  
+Tal vez imprime cosas. Tal vez borra tu disco. Tal vez es arte conceptual.  
+El código está ahí. Siéntete libre de adivinar.
 
-**GLaDOS** es un proyecto personal, experimental y absolutamente no profesional (por ahora 😈). Es mi intento de crear una asistente virtual para la terminal que maneje archivos, abra programas, y se burle de vos mientras lo hace. Está inspirada en el estilo teatral y pasivo-agresivo de GLaDOS (sí, la de Portal), y pensada para hacer que cada interacción en la terminal sea más expresiva, divertida y funcional.
+## 📦 Requisitos
 
-## 🎯 Objetivo
+No hay lista de dependencias. Porque eso sería útil.  
+Instala cosas hasta que funcione. O no.
 
-No hay un objetivo único ni una arquitectura formal. Este proyecto es un laboratorio de ideas donde:
-- Pruebo cosas que me parecen interesantes.
-- Mezclo automatización con feedback emocional (color, audio, sarcasmo).
-- Exploro cómo podría ser una CLI que no solo funcione, sino que tenga personalidad.
+## 🚀 Cómo usarlo
 
-## 🧪 Estado actual
+1. Clona el repositorio.  
+2. Ejecuta algún archivo.  
+3. Observa lo que sucede.  
+4. Llora.
 
-- Funciones Bash para abrir rutas en VS Code con feedback teatral.
-- Detección de errores con mensajes sarcásticos.
-- Integración de audio (voz de GLaDOS) para reforzar el drama.
-- Uso de colores personalizados (Portal orange, Aperture blue).
-- Modularización progresiva para reutilizar lógica y estilo.
+## 🧠 Contribuciones
 
-## ⚠️ Disclaimer
+¿Quieres contribuir? Qué valiente.  
+Haz un fork, adivina la intención original, y buena suerte.
 
-Este proyecto:
-- No sigue estándares formales de desarrollo.
-- No tiene documentación exhaustiva ni tutoriales.
-- No pretende ser útil para otros (aunque si te divierte, bienvenido).
-- Está hecho por diversión, curiosidad y ganas de experimentar.
+## 📄 Licencia
 
-## 📁 Estructura (por ahora)
+Probablemente haya una. O no.  
+Haz lo que quieras. Yo ya me rendí.
 
+--- Imagenes
 
-GLADOS/
-├── controllers/           # Lógica de control y flujo
-│   ├── aux.sh             # Funciones auxiliares
-│   └── gladosController.sh # Controlador principal de comandos
-│
-├── models/                # Lógica de datos y estado
-│   └── gladosModel.sh     # Modelo de interacción y estado interno
-│
-├── views/                 # Salida visual y auditiva
-│   ├── gladosView.sh      # Mensajes, colores, audio
-│   ├── .env               # Variables de entorno
-│   ├── image.png          # Imagen referencial o decorativa
-│   └── index.hs           # Posible vista alternativa en Haskell
-│
-├── resources/             # Recursos multimedia
-│   ├── images/            # Imágenes decorativas o funcionales
-│   └── voices/            # Audios de GLaDOS (feedback teatral)
-│
-├── README.md              # Documentación principal
-└── READMEGLADOSAUT...     # Archivo adicional (nombre truncado)
+![GLaDOS](/resources/glados_peak.jpg)
 
-## 🧠 Filosofía
-
-> “La ciencia no es sobre por qué, es sobre por qué no.”  
-> — GLaDOS
-
-GLaDOS no busca eficiencia. Busca estilo. Cada comando es una oportunidad para el sarcasmo, el color, y el caos controlado.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**Nota:** Este README fue generado automáticamente porque el autor olvidó escribir uno.  
+O tal vez fue un acto de rebeldía. Nunca lo sabremos.
