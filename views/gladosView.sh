@@ -108,7 +108,7 @@ glados_show_text_right_of_image() {
 
 # ❌ Mostrar error con estilo GLaDOS
 glados_show_error() {
-  echo 'hubo un error'
+  echo 'hubo un error'c
   local mensaje="$1"
   echo -e "\n                                                                                          \e[38;2;255;102;102m[ ERROR ] $mensaje ❌\e[0m"
 }
